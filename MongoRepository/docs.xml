@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <members name ="Repository">
+    <IRepo>
+      <summary>
+        This is the repository interface for any implementation of 
+        <typeparamref name="TItem"/>, exposing asynchronous C.R.U.D. functionality.
+      </summary>
+      <typeparam name="TItem">
+        The implementation class type.
+      </typeparam>
+    </IRepo>
+    <GetAll>
+      <summary>
+        This method is used to retrieve the whole collection from database. It is implemented in asynchronous way.
+      </summary>
+      <returns>
+        Returns a list of items in Generic type.
+      </returns>
+    </GetAll>
+    <GetById>
+      <summary>
+        This method is used to get single object from database with ID provided. It is implemented in asynchronous way.
+      </summary>
+      <param name="id">The Object ID of the item to be read from the database</param>
+      <returns>
+        Returns an item in Generic type.
+      </returns>
+    </GetById>
+    <InsertOne>
+      <summary>
+        This method is used to insert documents to your database. It is implemented in asynchronous way.
+      </summary>
+      <param name="item"> Generic type object.</param>
+      <returns>
+        Returns a boolean indicating success or failure.
+      </returns>
+    </InsertOne>
+    <DeleteOne>
+      <summary>
+        This method is used to hard-delete documents in your app with ID provided. However, it is recommended to use soft-delete for business
+        application such as updating a field namely "documentState" and setting it to "updated" thus securing some important data.
+      </summary>
+      <param name="id">The Object ID of the item to be read from the database</param>
+      <returns>
+        Returns a boolean indicating success or failure.
+      </returns>
+    </DeleteOne>
+    <UpdateOne>
+      <summary>
+        This method is used to update an item based on ID provided.
+      </summary>
+      <param name="id">The Object ID of the item to be read from the database</param>
+      <param name="item"> Generic type object.</param>
+      <returns>
+        Returns a boolean indicating success or failure.
+      </returns>
+    </UpdateOne>
+  </members>
+  <members name="DBClient">
+    <IDBClient>
+      <summary>
+        This is the database client interface that helps to initialize <see cref="GetCollection"></see>.
+      </summary>
+      <typeparam name="TItem">
+        The implementation class type.
+      </typeparam>
+    </IDBClient>
+    <GetCollection>
+      <summary>
+        This method is used to retrieve the whole collection from the database based on the connection string upon launch.
+      </summary>
+      <returns>
+        Returns the whole collection retrieved from the connection string.
+      </returns>
+    </GetCollection>
+  </members>
+</doc>
